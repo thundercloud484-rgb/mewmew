@@ -15,9 +15,8 @@ export default function PredictForm({ values, setValues }) {
     setLoading(true);
     try {
       // FORCED URL: This removes the 127.0.0.1 error forever
-      const apiUrl = "https://cse-domain-suggestions-fe-1.onrender.com";
       
-      const response = await fetch(`${apiUrl}/predict`, {
+      const response = await fetch("https://mewmew-1s17.onrender.com/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ values: entries.map(Number) })
@@ -27,7 +26,7 @@ export default function PredictForm({ values, setValues }) {
       const data = await response.json();
       setResult(data.predicted_role || "Prediction failed");
     } catch (err) {
-      console.error("Connection failed to:", "https://cse-domain-suggestions-fe-1.onrender.com");
+      console.error("Connection failed to:", "https://mewmew-1s17.onrender.com");
       setResult("API Error: Backend offline");
     } finally {
       setLoading(false);
@@ -54,4 +53,5 @@ export default function PredictForm({ values, setValues }) {
     </div>
   );
 }
+
 
